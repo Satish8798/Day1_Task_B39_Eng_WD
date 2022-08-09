@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Day One Tasks - 2</title>
+  <style type=text/css>
+    h1 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    body {
+      background-color: #76BA99;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Objects and it's internal represenation in javascript</h1>
+  <br>
+  <p>Object is the most important and one of the data types in javascript. and it forms the building blocks for
+    modern java script.
+    These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol)
+    in the sense that while these primitive data-types all store a single value each (depending on their types).</p>
+  <br>
+  <p>Objects are more complex and each object may contain any combination of these primitive data-types
+    as well as reference data-types.
+    An object, is a reference data type. Variables that are assigned a reference value are given a reference
+    or a pointer to that value. That reference or pointer points to the location in memory where the object is stored.
+    The variables don’t actually store the value.</p>
+  <br>
+  <p>For Eg. If your object is a student,
+    it will have properties like name, age, address, id, etc and methods like updateAddress, updateNam, etc.</p>
+  <h2>Object and properties</h2>
+  <p>A JavaScript object has properties associated with it. A property of an object
+    can be explained as a variable that is attached to the object. Object properties are basically the same as
+    ordinary JavaScript variables, except for the attachment to objects.
+    The properties of an object define the characteristics of the object.
+    You access the properties of an object with a simple dot-notation:</p>
+  <br>
+  <p>objectName.propertyName</p>
+  <br>
+  <p>Properties of JavaScript objects can also be accessed or set using a bracket notation
+    (for more details see property accessors). Objects are sometimes called associative arrays,
+    since each property is associated with a string value that can be used to access it.</p>
+  <br>
+  <p>objectName['propertyName']</p>
+  <br>
+  <p>An object property name can be any valid JavaScript string, or anything that can be converted to a string, including the empty string. However, any property name that is not a valid JavaScript identifier (for example, a property name that has a
+    space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. This notation is also very useful when property names are to be dynamically determined (when the property name is not determined until
+    runtime). Examples are as follows:</p>
+  <br>
+  <p>// four variables are created and assigned in a single go,<br>
+    // separated by commas <br>
+    var myObj = new Object(), <br>
+    str = 'myString', <br>
+    rand = Math.random(),<br>
+    obj = new Object();<br>
+    myObj.type = 'Dot syntax';<br>
+    myObj['date created'] = 'String with space';<br>
+    myObj[str] = 'String value';<br>
+    myObj[rand] = 'Random Number';<br>
+    myObj[obj] = 'Object';<br>
+    myObj[''] = 'Even an empty string';console.log(myObj);</p>
+  <br>
+  <p>You can also access properties by using a string value that is stored in a variable:</p>
+  <br>
+  <p>var propertyName = 'make'; <br>
+    myCar[propertyName] = 'Ford';<br>
+    propertyName = 'model'; <br>
+    myCar[propertyName] = 'Mustang';</p><br>
+  <p>You can use the bracket notation with for...in to iterate over all the enumerable properties of an object.
+    To illustrate how this works,
+    the following function displays the properties of the object when you pass the object
+    and the object's name as arguments to the function:
+  </p>
+  <br>
+  <p>function showProps(obj, objName) {<br>
+    var result = ``;<br>
+    for (var i in obj) {<br>
+    // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain <br>
+    if (obj.hasOwnProperty(i)) { <br>
+    result += `${objName}.${i} = ${obj[i]}\n`;<br>
+    }<br>
+    }<br>
+    return result;
+    <base href="#" target="_blank">
+    }
+  </p><br>
+  <p>So, the function call showProps(myCar, "myCar") would return the following:</p>
+  <br>
+  <p>myCar.make = Ford <br>
+    myCar.model = Mustang
+  </p><br>
+  <h2>Creating Objects In JavaScript :</h2>
+  <h2>Create JavaScript Object with Object Literal</h2>
+  <p>One of easiest way to create a javascript object is object literal,
+    simply define the property and values inside curly braces as shown below <br><br>
+    let bike = {name: 'SuperSport', maker:'Ducati', engine:'937cc'};
+  </p><br>
+  <h2>Create JavaScript Object with Constructor</h2>
+  <p>Constructor is nothing but a function and with help of new keyword,
+    constructor function allows to create multiple objects of same flavor as shown below</p><br>
+  <p>function Vehicle(name, maker) {<br>
+    this.name = name;<br>
+    this.maker = maker;<br>
+    }<br>
+    let car1 = new Vehicle(’Fiesta’, 'Ford’);<br>
+    let car2 = new Vehicle(’Santa Fe’, 'Hyundai’)<br>
+    console.log(car1.name); //Output: Fiesta <br>
+    console.log(car2.name); //Output: Santa Fe</p><br>
+  <h2>Using the JavaScript Keyword new</h2>
+  <p>The following example also creates a new JavaScript object with four properties:</p>
+  <br>
+  <p>var person = new Object();<br>
+    person.firstName = “John”;<br>
+    person.lastName = “Doe”;<br>
+    person.age = 50;<br>
+    person.eyeColor = “blue”;</p><br>
+  <h2>Using the Object.create method</h2>
+  <p>Objects can also be created using the Object.create() method.
+    This method can be very useful, because it allows you to choose the prototype object for the object
+    you want to create, without having to define a constructor function.</p><br>
+  <p>// Animal properties and method encapsulation <br>
+    var Animal = { <br>
+    type: 'Invertebrates', // Default value of properties <br>
+    displayType: function() { // Method which will display type of Animal <br>
+    console.log(this.type); <br>
+    } <br>
+    };<br>
+    // Create new animal type called animal1 <br>
+    var animal1 = Object.create(Animal);<br>
+    animal1.displayType(); // Output:Invertebrates <br>
+    // Create new animal type called Fishes <br>
+    var fish = Object.create(Animal); <br>
+    fish.type = 'Fishes'; <br>
+    fish.displayType(); <br>
+    // Output:Fishes</p>
+
+</body>
+
+</html>
